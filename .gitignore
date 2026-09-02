@@ -12,6 +12,7 @@
 !/nnet.schema.json
 !/safetynet.schema.json
 !/.vscode/*.json
+!/src/castrainer/schemas/*.json
 
 # Figures
 *.png
