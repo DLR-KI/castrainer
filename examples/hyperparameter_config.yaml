@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Hyperparameter configuration for neural network training
+# This YAML file defines all hyperparameter combinations to train
+
+# Activation functions to try
+activations:
+  - relu
+  - leakyrelu
+  - gelu
+  - tanh
+  - sigmoid
+
+# Number of hidden nodes in each layer
+hidden_nodes:
+  - 25
+  - 50
+  - 100
+  - 150
+  - 200
+
+# Number of hidden layers
+hidden_layers:
+  - 2
+  - 3
+  - 5
+  - 7

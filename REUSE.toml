@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+
+[[annotations]]
+SPDX-FileCopyrightText = "2026 German Aerospace Center (DLR e.V.) <https://dlr.de>"
+SPDX-License-Identifier = "MIT"
+path = ["src/castrainer/schemas/*.json"]
+
+[[annotations]]
+SPDX-FileCopyrightText = "2026 German Aerospace Center (DLR e.V.) <https://dlr.de>"
+SPDX-License-Identifier = "CC0-1.0"
+path = [".vscode/*.json", "uv.lock"]

@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+cff-version: 1.2.0
+
+message: "If you use this software, please cite the paper below (preferred-citation)."
+authors:
+    -
+        family-names: Christensen
+        given-names: Johann Maximilian
+        email: johann.christensen@dlr.de
+        affiliation: German Aerospace Center (DLR e.V.)
+        orcid: https://orcid.org/0000-0001-9871-122X
+    -
+        name: "German Aerospace Center (DLR e.V.)"
+        alias: DLR
+        address: Linder Höhe
+        city: Cologne
+        post-code: '51147'
+        region: NRW
+        country: DE
+        website: "https://dlr.de"
+title: "castrainer: Training and Safety-Net Generation for ACAS X Neural Networks"
+version: 1.0.0
+date-released: 2026-08-20
+type: software
+license: MIT
+repository-code: "https://github.com/DLR-KI/castrainer"
+
+preferred-citation:
+    type: conference-paper
+    title: "On the Applicability of Safety Nets: A Safety-By-Design Solution for Certifying Neural Networks"
+    authors:
+        -
+            family-names: Christensen
+            given-names: Johann Maximilian
+            email: johann.christensen@dlr.de
+            affiliation: German Aerospace Center (DLR e.V.)
+            orcid: https://orcid.org/0000-0001-9871-122X
+        -
+            family-names: Stefani
+            given-names: Thomas
+            email: thomas.stefani@dlr.de
+            affiliation: German Aerospace Center (DLR e.V.)
+            orcid: https://orcid.org/0000-0001-7352-0590
+        -
+            family-names: Hoemann
+            given-names: Elena
+            email: elena.hoemann@dlr.de
+            affiliation: German Aerospace Center (DLR e.V.)
+            orcid: https://orcid.org/0000-0001-9315-548X
+        -
+            family-names: Köster
+            given-names: Frank
+            email: frank.koester@dlr.de
+            affiliation: German Aerospace Center (DLR e.V.)
+        -
+            family-names: Hallerbach
+            given-names: Sven
+            email: sven.hallerbach@dlr.de
+            affiliation: German Aerospace Center (DLR e.V.)
+            orcid: https://orcid.org/0009-0007-9163-0567
+    collection-title: "35th Congress of the International Council of the Aeronautical Sciences (ICAS)"
+    collection-type: proceedings
+    publisher:
+        name: CEAS
+    conference:
+        name: "35th Congress of the International Council of the Aeronautical Sciences (ICAS)"
+        city: Sydney
+        country: AU
+        date-start: 2026-09-13
+        date-end: 2026-09-18
+    doi: 10.71945/icas2026_0210
+    issn: 2958-4647
+    start: 1
+    end: 27
+    year: 2026
+    month: 9

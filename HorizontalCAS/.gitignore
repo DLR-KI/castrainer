@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2019 Stanford Intelligent Systems Laboratory
+#
+# SPDX-License-Identifier: MIT
+TrainingData/*
+*/tmp*
+*bin
+*/.ipynb_checkpoints/*

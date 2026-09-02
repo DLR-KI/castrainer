@@ -1,0 +1,216 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build>=0.10,<1.0"]
+
+[dependency-groups]
+ci = [
+  "anybadge",
+  "codeclimate-test-reporter",
+  "flake8-docstrings-complete",
+  "flake8-docstrings",
+  "flake8-gl-codeclimate",
+  "flake8-pyproject",
+  "flake8",
+  "pip-audit",
+  "pylint-gitlab",
+  "pylint-per-file-ignores",
+  "pylint",
+  "typos",
+  "typos-gitlab-code-quality"
+]
+dev = [
+  "prek>=0.3.5",
+  "reuse>=6.2.0",
+  "ruff>=0.15.5",
+  "ty>=0.0.21",
+  "uv>=0.10.9",
+  "h5py-stubs",
+  "types-requests"
+]
+tests = ["coverage", "pytest-cov", "pytest>=7.4.0", "parameterized"]
+
+[project]
+authors = [{name = "Johann Christensen", email = "johann.christensen@dlr.de"}]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Natural Language :: English",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Games/Entertainment :: Simulation",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Typing :: Typed"
+]
+dependencies = [
+  "h5py>=3.16.0",
+  "jsonschema>=4.26.0",
+  "lightning>=2.6.4",
+  "loguru>=0.7.3",
+  "numpy>=2.4.6",
+  "nvidia-ml-py>=13.595.45",
+  "orjson>=3.11.9",
+  "rich>=15.0.0",
+  "scipy>=1.17.1",
+  "tqdm>=4.70.0",
+  "typer>=0.25.1"
+]
+description = "Train neural networks for HCAS and VCAS"
+license = "MIT"
+license-files = ["LICENSE", "LICENSES/*"]
+name = "castrainer"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "1.0.0"
+
+[project.scripts]
+castrainer = "castrainer.__main__:main"
+
+[project.urls]
+Source = "https://github.com/DLR-KI/castrainer"
+Tracker = "https://github.com/DLR-KI/castrainer/issues"
+
+[tool.codespell]
+ignore-words-list = "astroid"
+
+[tool.flake8]
+check-return-types = true
+extend-ignore = ["DCO010", "DCO060"]
+max-complexity = "10"
+max-line-length = "88"
+select = "DCO, DOC"
+style = "google"
+
+[tool.licensecheck]
+# NVIDIA/CUDA licenses are custom but allow redistribution. fsspec is BSD-3-Clause.
+ignore_packages = ["nvidia-*", "cuda-*", "fsspec"]
+using = "PEP631"
+zero = true
+
+[tool.pylint.MASTER]
+extension-pkg-allow-list = []
+load-plugins = ["pylint_per_file_ignores"]
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = "88"
+
+[tool.pylint.SIMILARITIES]
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 10
+
+[tool.pylint-per-file-ignores]
+# tests/*: Ignore missing docs (C0114, C0116), too long lines (E501), too few/many public methods (R0903, R0904), access to protected member (W0212)
+"tests/*" = "C0114,C0116,E501,R0903,R0904,W0212"
+
+[tool.pytest.ini_options]
+addopts = "--cov=src/castrainer/ --cov-report=term-missing --cov-report=xml:coverage.xml --junitxml=report.xml"
+filterwarnings = [
+  "ignore::tqdm.TqdmExperimentalWarning",
+  "ignore:builtin type SwigPyPacked has no __module__ attribute:DeprecationWarning",
+  "ignore:builtin type SwigPyObject has no __module__ attribute:DeprecationWarning",
+  "ignore:builtin type swigvarlink has no __module__ attribute:DeprecationWarning"
+]
+testpaths = ["tests"]
+
+[tool.ruff]
+fix = true
+target-version = "py312"
+unsafe-fixes = true
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+extend-select = [
+  "A",
+  "ANN",
+  "ARG",
+  "ASYNC",
+  "B",
+  "BLE",
+  "C4",
+  "C90",
+  "D",
+  "DOC",
+  "DTZ",
+  "E",
+  "ERA",
+  "EXE",
+  "F",
+  "FAST",
+  "FBT",
+  "FLY",
+  "FURB",
+  "I",
+  "INP",
+  "ISC",
+  "LOG",
+  "N",
+  "NPY",
+  "PERF",
+  "PIE",
+  "PL",
+  "PLE",
+  "PLR",
+  "PLW",
+  "PT",
+  "PTH",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "SLF",
+  "T20",
+  "TC",
+  "UP",
+  "W"
+]
+fixable = ["ALL"]
+ignore = ["whitespace-before-punctuation", "undocumented-magic-method"]
+preview = true
+unfixable = ["T20"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.per-file-ignores]
+"HorizontalCAS/*" = ["ALL"]
+"VerticalCAS/*" = ["ALL"]
+"tests/*" = [
+  "assert",
+  "missing-return-type-undocumented-public-function",
+  "missing-return-type-static-method",
+  "D",
+  "line-too-long",
+  "too-many-public-methods",
+  "import-private-name",
+  "import-outside-top-level",
+  "magic-value-comparison",
+  "private-member-access",
+  "suspicious-eval-usage",
+  "doc-line-too-long"
+]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 72
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ty.src]
+exclude = ["HorizontalCAS", "VerticalCAS"]
+
+[tool.uv]
+default-groups = "all"
+exclude-newer = "7 days"

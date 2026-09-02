@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+numpy>=1.26.3,<2.0.0
+h5py>=3.10.0
+tensorflow==2.15.0
